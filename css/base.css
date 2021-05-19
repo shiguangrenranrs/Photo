@@ -1,0 +1,13 @@
+body {
+    background-color: #eee;
+}
+
+main {
+    max-width: 580px;
+    background-color: #fff;
+}
+
+p {
+    margin-top: 15px;
+    text-align: center;
+}

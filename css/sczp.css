@@ -1,0 +1,46 @@
+header {
+    padding: 2% 15px;
+    background-color: #58bad7;
+}
+
+header h1 {
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    header .method .item {
+        margin: 5px 0;
+    }
+    header .method .item,
+    header .method .btn {
+        width: 100%;
+    }
+}
+
+@media (min-width: 500px) {
+    header .method {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+header .btn {
+    font-weight: bold;
+}
+
+#link {
+    pointer-events: none;
+}
+
+form button {
+    width: 100%;
+}
+
+.statement>p {
+    font-weight: bold;
+}
+
+.statement ol {
+    padding-inline-start: 40px;
+}

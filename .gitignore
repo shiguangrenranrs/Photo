@@ -1,0 +1,4 @@
+# 拍照文件不上传
+/loadFile/*
+# MAC
+.DS_Store
